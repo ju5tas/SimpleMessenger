@@ -1,10 +1,8 @@
-import java.io.*;
+import java.io.IOException;
 import java.net.ServerSocket;
 
 public class Server {
     private final int port;
-    private ServerSocket serverSocket;
-    private SendService sender;
 
     public Server(int port) {
         this.port = port;
@@ -12,11 +10,11 @@ public class Server {
     }
 
     private void start() {
-        sender = new SendService();
+        SendService sender = new SendService();
         try {
-            serverSocket = new ServerSocket(port);
+            ServerSocket serverSocket = new ServerSocket(port);
 
-            while (true){
+            while (true) {
                 sender.handleConnection(serverSocket.accept());
             }
         } catch (IOException e) {

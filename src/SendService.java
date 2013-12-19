@@ -66,7 +66,7 @@ public class SendService {
     }
 
     public String activeConnections(){
-        StringBuffer res = new StringBuffer();
+        StringBuilder res = new StringBuilder();
         for (String s : connections.keySet()){
             res.append(s).append(", ");
         }
