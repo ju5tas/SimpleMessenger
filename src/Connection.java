@@ -1,4 +1,7 @@
-import java.io.*;
+import java.io.BufferedReader;
+import java.io.IOException;
+import java.io.InputStreamReader;
+import java.io.PrintStream;
 import java.net.Socket;
 
 public class Connection implements Runnable {
@@ -208,10 +211,11 @@ public class Connection implements Runnable {
     private void commandHelp() throws IOException {
         sendText("Your number is " + selfName);
         sendText("Supported commands:");
-        sendText("/connect id");
-        sendText("/hangup");
-        sendText("/quit");
-        sendText("/help\r\n");
+        sendText("\t/who\t\t- list of active users");
+        sendText("\t/connect id\t- connect to user with id");
+        sendText("\t/hangup\t\t- interrupt conversation");
+        sendText("\t/quit\t\t- close terminal");
+        sendText("\t/help\t\t- display this list of commands\r\n");
     }
 
     private void commandWho() throws IOException {
